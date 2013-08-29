@@ -84,8 +84,8 @@ Bundle "tComment"
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
-"After Esc hide all selected highlights
-nnoremap <esc> :noh<return><esc>
+" After Esc hide all searched highlights
+nnoremap <silent> <Leader><Leader> :nohl<return>
 
 Bundle "tpope/vim-fugitive"
 Bundle "flazz/vim-colorschemes"
