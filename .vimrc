@@ -57,7 +57,8 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 set splitbelow
 set splitright
 
-cmap w!! w !sudo tee > /dev/null % " save file with sude priveleges
+" save file with sudo priveleges
+cmap w!! w !sudo tee > /dev/null %
 
 " Tabs 
 nnoremap <silent> <LocalLeader>[ :tabprev<CR>
@@ -82,6 +83,9 @@ nnoremap <silent> <LocalLeader>t :NERDTree<CR>
 Bundle "tComment"
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
+
+"After Esc hide all selected highlights
+nnoremap <esc> :noh<return><esc>
 
 Bundle "tpope/vim-fugitive"
 Bundle "flazz/vim-colorschemes"
