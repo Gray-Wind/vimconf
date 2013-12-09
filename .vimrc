@@ -57,6 +57,9 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 set splitbelow
 set splitright
 
+" show whitespaces
+set list listchars=tab:→\ ,trail:·
+
 " save file with sudo priveleges
 cmap w!! w !sudo tee > /dev/null %
 
