@@ -52,7 +52,7 @@ set shortmess=atI
 set foldenable " Turn on folding
 set foldmethod=marker " Fold on the marker
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
 set splitbelow
 set splitright
@@ -60,7 +60,7 @@ set splitright
 " save file with sudo priveleges
 cmap w!! w !sudo tee > /dev/null %
 
-" Tabs 
+" Tabs
 nnoremap <silent> <LocalLeader>[ :tabprev<CR>
 nnoremap <silent> <LocalLeader>] :tabnext<CR>
 
@@ -90,9 +90,9 @@ nnoremap <silent> <Leader><Leader> :nohl<return>
 Bundle "tpope/vim-fugitive"
 Bundle "flazz/vim-colorschemes"
 
-" Split line(opposite to S-J joining line) 
-nnoremap <silent> <C-J> gEa<CR><ESC>ew 
+" Split line(opposite to S-J joining line)
+nnoremap <silent> <C-J> gEa<CR><ESC>ew
 
-filetype plugin indent on 
+filetype plugin indent on
 
 colorscheme jellybeans
