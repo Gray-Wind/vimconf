@@ -82,12 +82,20 @@ set rtp+=~/.vim/bundle/vundle/
 
 call vundle#rc()
 
+" surrounding with brackets, quotes, etc
+Bundle "tpope/vim-surround"
+
+" auto close quotes, brackets and other
+" Bundle "Raimondi/delimitMate"
+
 Bundle 'gmaric/vundle'
 
 Bundle 'bling/vim-airline'
 
 Bundle 'scrooloose/nerdtree'
 nnoremap <silent> <LocalLeader>t :NERDTree<CR>
+
+Bundle 'scrooloose/syntastic'
 
 " tComment
 Bundle "tComment"
