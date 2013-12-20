@@ -64,6 +64,9 @@ set list listchars=tab:→\ ,trail:·
 set textwidth=80
 set colorcolumn=+1
 
+" Scroll the window so we can always see 10 lines around the cursor
+set scrolloff=10
+
 " save file with sudo priveleges
 cmap w!! w !sudo tee > /dev/null %
 
