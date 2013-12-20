@@ -14,7 +14,7 @@ set hidden " The current buffer can be put to the background without writing to 
 " Match and search
 set hlsearch    " highlight search
 set ignorecase  " Do case in sensitive matching with
-set smartcase		" be sensitive when there's a capital letter
+set smartcase	" be sensitive when there's a capital letter
 
 syntax on
 set laststatus=2 " lets aircmd without splits
@@ -117,3 +117,5 @@ colorscheme jellybeans
 let g:airline_theme = "serene"
 
 highlight ColorColumn ctermbg=233
+highlight OverLength ctermbg=236
+match OverLength /\%>80v.\+/
