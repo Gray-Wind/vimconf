@@ -114,5 +114,6 @@ nnoremap <silent> <C-J> gEa<CR><ESC>ew
 filetype plugin indent on
 
 colorscheme jellybeans
+let g:airline_theme = "serene"
 
 highlight ColorColumn ctermbg=233
