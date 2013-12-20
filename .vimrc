@@ -60,6 +60,10 @@ set splitright
 " show whitespaces
 set list listchars=tab:→\ ,trail:·
 
+" Show a vertical line on a 80th character
+set textwidth=80
+set colorcolumn=+1
+
 " save file with sudo priveleges
 cmap w!! w !sudo tee > /dev/null %
 
@@ -99,3 +103,5 @@ nnoremap <silent> <C-J> gEa<CR><ESC>ew
 filetype plugin indent on
 
 colorscheme jellybeans
+
+highlight ColorColumn ctermbg=233
