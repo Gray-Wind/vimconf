@@ -86,7 +86,7 @@ call vundle#rc()
 Bundle "tpope/vim-surround"
 
 " auto close quotes, brackets and other
-" Bundle "Raimondi/delimitMate"
+Bundle "Raimondi/delimitMate"
 
 Bundle 'gmaric/vundle'
 
