@@ -70,9 +70,27 @@ set scrolloff=10
 " save file with sudo priveleges
 cmap w!! w !sudo tee > /dev/null %
 
-" Tabs
-nnoremap <silent> <LocalLeader>[ :tabprev<CR>
-nnoremap <silent> <LocalLeader>] :tabnext<CR>
+function! Tabbufn()
+	let s:tab_count = tabpagenr('$')
+	if s:tab_count <= 1
+		:bn
+	else
+		:tabnext
+	endif
+endfunction
+
+function! Tabbufp()
+	let s:tab_count = tabpagenr('$')
+	if s:tab_count <= 1
+		:bp
+	else
+		:tabprev
+	endif
+endfunction
+
+" Tabs and buffers
+nnoremap <silent> <LocalLeader>[ :call Tabbufp()<CR>
+nnoremap <silent> <LocalLeader>] :call Tabbufn()<CR>
 
 inoremap <S-Tab> <C-D>
 
