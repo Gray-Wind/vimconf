@@ -108,6 +108,8 @@ Bundle "Raimondi/delimitMate"
 
 Bundle 'gmaric/vundle'
 
+Bundle 'mkitt/tabline.vim'
+
 Bundle 'bling/vim-airline'
 
 Bundle 'scrooloose/nerdtree'
@@ -124,7 +126,14 @@ vnoremap // :TComment<CR>
 nnoremap <silent> <Leader><Leader> :nohl<return>
 
 Bundle "tpope/vim-fugitive"
+Bundle "airblade/vim-gitgutter"
+
 Bundle "flazz/vim-colorschemes"
+
+Bundle "majutsushi/tagbar"
+
+Bundle "bling/vim-bufferline"
+let g:bufferline_echo = 0
 
 " Split line(opposite to S-J joining line)
 nnoremap <silent> <C-J> gEa<CR><ESC>ew
@@ -133,6 +142,7 @@ filetype plugin indent on
 
 colorscheme jellybeans
 let g:airline_theme = "serene"
+let g:airline#extensions#tabline#enabled = 1
 
 highlight ColorColumn ctermbg=233
 highlight OverLength ctermbg=236
