@@ -61,11 +61,13 @@ set splitright
 set list listchars=tab:→\ ,trail:·
 
 " Show a vertical line on a 80th character
-set textwidth=80
+set textwidth=100
 set colorcolumn=+1
 
 " Scroll the window so we can always see 10 lines around the cursor
 set scrolloff=10
+
+set relativenumber
 
 " save file with sudo priveleges
 cmap w!! w !sudo tee > /dev/null %
@@ -146,4 +148,4 @@ let g:airline#extensions#tabline#enabled = 1
 
 highlight ColorColumn ctermbg=233
 highlight OverLength ctermbg=236
-match OverLength /\%>80v.\+/
+match OverLength /\%>100v.\+/
