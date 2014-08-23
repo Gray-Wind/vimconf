@@ -6,6 +6,8 @@ set autoread
 set nowritebackup
 set nobackup
 set directory=/tmp// " prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
+set noexpandtab
+set shell=bash\ -l
 
 set ttimeoutlen=50
 
@@ -61,7 +63,7 @@ set splitright
 set list listchars=tab:→\ ,trail:·
 
 " Show a vertical line on a 80th character
-set textwidth=100
+set textwidth=80
 set colorcolumn=+1
 
 " Scroll the window so we can always see 10 lines around the cursor
@@ -98,54 +100,70 @@ inoremap <S-Tab> <C-D>
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
-call vundle#rc()
+Plugin 'gmarik/Vundle.vim'
 
 " surrounding with brackets, quotes, etc
-Bundle "tpope/vim-surround"
+Plugin 'tpope/vim-surround'
 
 " auto close quotes, brackets and other
-Bundle "Raimondi/delimitMate"
+Plugin 'Raimondi/delimitMate'
 
-Bundle 'gmaric/vundle'
+Plugin 'mkitt/tabline.vim'
 
-Bundle 'mkitt/tabline.vim'
+Plugin 'bling/vim-airline'
 
-Bundle 'bling/vim-airline'
-
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 nnoremap <silent> <LocalLeader>t :NERDTree<CR>
 
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " tComment
-Bundle "tComment"
+Plugin 'tComment'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
 " After Esc hide all searched highlights
 nnoremap <silent> <Leader><Leader> :nohl<return>
 
-Bundle "tpope/vim-fugitive"
-Bundle "airblade/vim-gitgutter"
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
-Bundle "flazz/vim-colorschemes"
+Plugin 'flazz/vim-colorschemes'
 
-Bundle "majutsushi/tagbar"
+Plugin 'majutsushi/tagbar'
+nmap <silent> <LocalLeader>p :TagbarToggle<CR>
 
-Bundle "bling/vim-bufferline"
+Plugin 'bling/vim-bufferline'
 let g:bufferline_echo = 0
+
+Plugin 'ervandew/supertab'
+
+Plugin 'andviro/flake8-vim'
+let g:PyFlakeDisabledMessages = 'W191,E302,E251,E309,E128,E731,W391'
+let g:PyFlakeOnWrite = 0
+
+" Plugin 'kevinw/pyflakes-vim'
+
+Plugin 'Valloric/YouCompleteMe'
+
+" Plugin 'chrisbra/changesPlugin'
 
 " Split line(opposite to S-J joining line)
 nnoremap <silent> <C-J> gEa<CR><ESC>ew
 
+call vundle#end()
 filetype plugin indent on
+
+autocmd FileType python setlocal foldmethod=indent cindent shiftwidth=4 ts=4 noet cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 colorscheme jellybeans
 let g:airline_theme = "serene"
 let g:airline#extensions#tabline#enabled = 1
+set noshowmode
 
 highlight ColorColumn ctermbg=233
 highlight OverLength ctermbg=236
-match OverLength /\%>100v.\+/
+match OverLength /\%>80v.\+/
