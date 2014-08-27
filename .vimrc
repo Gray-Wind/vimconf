@@ -149,6 +149,8 @@ let g:PyFlakeOnWrite = 0
 
 Plugin 'Valloric/YouCompleteMe'
 
+Plugin 'bogado/file-line'
+
 " Plugin 'chrisbra/changesPlugin'
 
 " Split line(opposite to S-J joining line)
