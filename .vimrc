@@ -7,7 +7,7 @@ set nowritebackup
 set nobackup
 set directory=/tmp// " prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
 set noexpandtab
-set shell=bash\ -l
+set shell=zsh
 
 set ttimeoutlen=50
 
@@ -151,7 +151,10 @@ Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'bogado/file-line'
 
-" Plugin 'chrisbra/changesPlugin'
+Plugin 'chrisbra/changesPlugin'
+
+Plugin 'yegappan/mru'
+nmap <silent> <LocalLeader>m :MRU<CR>
 
 " Split line(opposite to S-J joining line)
 nnoremap <silent> <C-J> gEa<CR><ESC>ew
