@@ -116,7 +116,7 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'bling/vim-airline'
 
 Plugin 'scrooloose/nerdtree'
-nnoremap <silent> <LocalLeader>t :NERDTree<CR>
+nnoremap <silent> <LocalLeader>t :NERDTreeToggle<CR>
 
 Plugin 'scrooloose/syntastic'
 
@@ -142,12 +142,16 @@ let g:bufferline_echo = 0
 Plugin 'ervandew/supertab'
 
 Plugin 'andviro/flake8-vim'
-let g:PyFlakeDisabledMessages = 'W191,E302,E251,E309,E128,E731,W391'
+" let g:PyFlakeDisabledMessages = 'W191,E302,E309,E128,E731,W391'
+" 'E221' " E221 — multiply spaces before operator (aligning disabled)
+let g:PyFlakeDisabledMessages = 'E221'
 let g:PyFlakeOnWrite = 0
+nmap <silent> <LocalLeader>f :PyFlake<CR>
 
 " Plugin 'kevinw/pyflakes-vim'
 
 Plugin 'Valloric/YouCompleteMe'
+nmap <silent> <LocalLeader>g :YcmCompleter GoTo<CR>
 
 Plugin 'bogado/file-line'
 
