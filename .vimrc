@@ -179,8 +179,8 @@ call vundle#end()
 filetype plugin indent on
 
 " autocmd FileType python setlocal foldmethod=indent cindent shiftwidth=4 ts=4 noet cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType startify setlocal buftype=
-autocmd User Startified call AirlineRefresh
+autocmd User Startified set buftype=
+autocmd User Startified AirlineRefresh
 
 colorscheme jellybeans
 let g:airline_theme = "serene"
