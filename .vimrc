@@ -69,7 +69,13 @@ set colorcolumn=+1
 " Scroll the window so we can always see 10 lines around the cursor
 set scrolloff=10
 
-set relativenumber
+set number                      " always show line numbers
+set numberwidth=4               " number of culumns for line numbers
+augroup relative_line_numbers
+	au!
+	autocmd FocusLost,BufLeave,InsertEnter   * if &number | :setl norelativenumber | endif
+	autocmd FocusGained,BufEnter,InsertLeave * if &number | :setl relativenumber   | endif
+augroup end
 
 " save file with sudo priveleges
 cmap w!! w !sudo tee > /dev/null %
@@ -139,7 +145,7 @@ nmap <silent> <LocalLeader>p :TagbarToggle<CR>
 Plugin 'bling/vim-bufferline'
 let g:bufferline_echo = 0
 
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 
 Plugin 'andviro/flake8-vim'
 " let g:PyFlakeDisabledMessages = 'W191,E302,E309,E128,E731,W391'
@@ -152,13 +158,19 @@ nmap <silent> <LocalLeader>f :PyFlake<CR>
 
 Plugin 'Valloric/YouCompleteMe'
 nmap <silent> <LocalLeader>g :YcmCompleter GoTo<CR>
+let g:ycm_autoclose_preview_window_after_completion = 0
 
-Plugin 'bogado/file-line'
+" Plugin 'bogado/file-line'
 
 Plugin 'chrisbra/changesPlugin'
 
 Plugin 'yegappan/mru'
 nmap <silent> <LocalLeader>m :MRU<CR>
+
+Plugin 'mhinz/vim-startify' " Start screen
+let g:startify_bookmarks = ['~/.vimrc',]
+let g:startify_change_to_vcs_root = 1
+let g:startify_custom_header = map(split(system('fortune ~/.vim/fortunes'), '\n'), '"   ".v:val') + ['',]
 
 " Split line(opposite to S-J joining line)
 nnoremap <silent> <C-J> gEa<CR><ESC>ew
@@ -166,7 +178,9 @@ nnoremap <silent> <C-J> gEa<CR><ESC>ew
 call vundle#end()
 filetype plugin indent on
 
-autocmd FileType python setlocal foldmethod=indent cindent shiftwidth=4 ts=4 noet cinwords=if,elif,else,for,while,try,except,finally,def,class
+" autocmd FileType python setlocal foldmethod=indent cindent shiftwidth=4 ts=4 noet cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType startify setlocal buftype=
+autocmd User Startified call AirlineRefresh
 
 colorscheme jellybeans
 let g:airline_theme = "serene"
