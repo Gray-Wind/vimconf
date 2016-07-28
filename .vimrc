@@ -16,7 +16,7 @@ set hidden " The current buffer can be put to the background without writing to 
 " Match and search
 set hlsearch    " highlight search
 set ignorecase  " Do case in sensitive matching with
-set smartcase	" be sensitive when there's a capital letter
+set smartcase   " be sensitive when there's a capital letter
 
 syntax on
 set laststatus=2 " lets aircmd without splits
@@ -63,7 +63,7 @@ set splitright
 set list listchars=tab:→\ ,trail:·
 
 " Show a vertical line on a 80th character
-set textwidth=80
+set textwidth=99
 set colorcolumn=+1
 
 " Scroll the window so we can always see 10 lines around the cursor
@@ -119,7 +119,8 @@ Plugin 'Raimondi/delimitMate'
 
 Plugin 'mkitt/tabline.vim'
 
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'scrooloose/nerdtree'
 nnoremap <silent> <LocalLeader>t :NERDTreeToggle<CR>
@@ -131,7 +132,6 @@ Plugin 'tComment'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
-" After Esc hide all searched highlights
 nnoremap <silent> <Leader><Leader> :nohl<return>
 
 Plugin 'tpope/vim-fugitive'
@@ -142,15 +142,15 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'majutsushi/tagbar'
 nmap <silent> <LocalLeader>p :TagbarToggle<CR>
 
-Plugin 'bling/vim-bufferline'
-let g:bufferline_echo = 0
+" Plugin 'bling/vim-bufferline'
+" let g:bufferline_echo = 0
 
 " Plugin 'ervandew/supertab'
 
 Plugin 'andviro/flake8-vim'
 " let g:PyFlakeDisabledMessages = 'W191,E302,E309,E128,E731,W391'
 " 'E221' " E221 — multiply spaces before operator (aligning disabled)
-let g:PyFlakeDisabledMessages = 'E221'
+let g:PyFlakeDisabledMessages = 'E221,E309,C901'
 let g:PyFlakeOnWrite = 0
 nmap <silent> <LocalLeader>f :PyFlake<CR>
 
@@ -164,6 +164,13 @@ let g:ycm_autoclose_preview_window_after_completion = 0
 
 Plugin 'chrisbra/changesPlugin'
 
+Plugin 'ctrlpvim/ctrlp.vim'
+" CtrlP ignore patterns
+let g:ctrlp_custom_ignore = {
+	\ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
+	\ 'file': '\.exe$\|\.so$'
+	\ }
+
 Plugin 'yegappan/mru'
 nmap <silent> <LocalLeader>m :MRU<CR>
 
@@ -171,6 +178,9 @@ Plugin 'mhinz/vim-startify' " Start screen
 let g:startify_bookmarks = ['~/.vimrc',]
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = map(split(system('fortune ~/.vim/fortunes'), '\n'), '"   ".v:val') + ['',]
+
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'benmills/vimux'
 
 " Split line(opposite to S-J joining line)
 nnoremap <silent> <C-J> gEa<CR><ESC>ew
@@ -187,6 +197,6 @@ let g:airline_theme = "serene"
 let g:airline#extensions#tabline#enabled = 1
 set noshowmode
 
-highlight ColorColumn ctermbg=233
+highlight ColorColumn ctermbg=232
 highlight OverLength ctermbg=236
-match OverLength /\%>80v.\+/
+match OverLength /\%>99v.\+/
